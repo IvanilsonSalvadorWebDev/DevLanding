@@ -75,5 +75,5 @@ Antes de começar, você precisa ter instalado:
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/DevLanding.git
+git clone https://github.com/IvanilsonSalvadorWebDev/DevLanding.git
 cd DevLanding
