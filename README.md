@@ -1,59 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DevLanding 🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Landing page moderna construída com **Laravel**, **Blade**, **Vite**, **GSAP** e um sistema simples de **captura de leads (newsletter)**.
 
-## About Laravel
+Ideal para testes, estudo e como base para futuros projetos de marketing digital, ecommerces e páginas de vendas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📚 Índice
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. [Funcionalidades](#-funcionalidades)
+2. [Tecnologias utilizadas](#-tecnologias-utilizadas)
+3. [Pré-requisitos](#-pré-requisitos)
+4. [Instalação do projeto](#-instalação-do-projeto)
+5. [Configuração do banco de dados](#-configuração-do-banco-de-dados)
+   - [Opção A — SQLite](#opção-a--sqlite-recomendado-para-teste)
+   - [Opção B — MySQL](#opção-b--mysqlmariadb)
+6. [Frontend com Vite e GSAP](#-frontend-com-vite-e-gsap)
+7. [Rodando o projeto em desenvolvimento](#-rodando-o-projeto-em-desenvolvimento)
+8. [Fluxo da newsletter](#-fluxo-da-newsletter)
+9. [Estrutura principal do projeto](#-estrutura-principal-do-projeto)
+10. [Subindo o projeto para o GitHub](#-subindo-o-projeto-para-o-github)
+11. [Preparando para produção (build)](#-preparando-para-produção-build)
+12. [Hospedagem / Deploy](#-hospedagem--deploy)
+    - [Deploy em hospedagem compartilhada (exemplo genérico)](#1-deploy-em-hospedagem-compartilhada-exemplo-genérico)
+    - [Deploy em VPS (visão geral)](#2-deploy-em-vps-visão-geral)
+13. [TODO / Próximos passos](#-todo--próximos-passos)
+14. [Autor](#-autor)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## ✅ Funcionalidades
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Landing page **responsiva** (mobile-first)
+- Formulário de newsletter com:
+  - Validação de email no backend (Laravel)
+  - Salvamento em banco de dados na tabela `leads`
+  - Proteção CSRF (`@csrf`)
+- Popup animado de **sucesso** usando **GSAP**
+- Animações de entrada no hero e no card principal
+- Integração com **Laravel Vite** (CSS + JS separados, com build moderno)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠 Tecnologias utilizadas
 
-### Premium Partners
+- **PHP 8+**
+- **Laravel**
+- Blade (template engine)
+- Vite (empacotador frontend)
+- JavaScript (ES Modules)
+- **GSAP** para animações
+- Banco de dados:
+  - **SQLite** (ideal pra teste)
+  - ou **MySQL / MariaDB** (produção)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## ✅ Pré-requisitos
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Antes de começar, você precisa ter instalado:
 
-## Code of Conduct
+- [PHP 8+](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Node.js + NPM](https://nodejs.org/)
+- Banco de dados:
+  - SQLite (nenhuma instalação extra, só criar o ficheiro)
+  - ou MySQL / MariaDB (XAMPP, Laragon, Wamp, Docker, etc.)
+- Git (para versionamento e deploy via GitHub)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 📦 Instalação do projeto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Clonar o repositório
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/SEU-USUARIO/DevLanding.git
+cd DevLanding
