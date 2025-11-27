@@ -1,212 +1,426 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Landing Page - DevLanding</title>
+body>
 
-</head>
-<body>
-<header>
-    <div class="nav-container">
+<header class="header">
+    <div class="container">
         <div class="logo">
-            <span>Dev</span>Landing
+            <img src="assets/img/logo.png" class="heroBack" alt="Skilline logo">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#inicio" class="nav-link">Início</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                <li><a href="#newsletter" class="nav-link">Newsletter</a></li>
-            </ul>
+
+        <div class="nav_right_links">
+          <nav class="nav" id="navMenu">
+            <a href="#">Home</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">About us</a>
         </nav>
+
+        <div class="auth-buttons">
+            <button class="login">Login</button>
+            <button class="signup">Sign Up</button>
+        </div>
+        </div>
+        
+
+        <div class="menu-mobile" onclick="toggleMenu()">
+            ☰
+        </div>
     </div>
 </header>
 
-<main id="inicio">
-    <section class="hero">
-        <div>
-            <div class="hero-tag">
-                <span class="hero-tag-dot"></span>
-                Landing Page em Laravel + JS
-            </div>
-            <h1>
-                Transforme visitas em <span>clientes</span> com uma landing moderna.
-            </h1>
-            <p>
-                Uma estrutura pensada para capturar leads, apresentar a sua oferta
-                e gerar conversões. Tudo pronto para você adaptar ao seu produto.
-            </p>
 
-            <div class="hero-buttons">
-                <button class="btn btn-primary" id="btn-scroll-newsletter">
-                    Quero receber novidades
-                </button>
-                <button class="btn btn-secondary">
-                    Ver mais detalhes <span class="btn-icon">▶</span>
-                </button>
-            </div>
+<section class="hero">
+    <div class="hero-text">
+        <h1><span>Studying</span> Online is now<br> much easier</h1>
+        <p>Skilline is an interesting platform that will teach you in a more interactive way.</p>
 
-            <div class="hero-meta">
-                <div class="hero-meta-item">
-                    <strong>100% responsiva</strong>
-                    Otimizada para mobile e desktop.
-                </div>
-                <div class="hero-meta-item">
-                    <strong>Feita com Laravel & JS</strong>
-                    Backend pronto para escalar.
-                </div>
-            </div>
-        </div>
-
-        <aside class="hero-card">
-            <div class="hero-card-badge">
-                🔥 24 novas inscrições hoje
-            </div>
-
-            <h3 class="hero-card-title">Painel de crescimento em tempo real</h3>
-            <p class="hero-card-desc">
-                Acompanhe o crescimento da sua lista de emails e teste diferentes campanhas.
-            </p>
-
-            <div class="hero-card-visual">
-                <div class="hero-orbits">
-                    <div class="orbit-ring r1"></div>
-                    <div class="orbit-ring r2"></div>
-                    <div class="orbit-dot" id="orbit-dot"></div>
-                </div>
-            </div>
-
-            <div class="hero-card-footer">
-                <span>
-                    Última campanha<br>
-                    <strong>+37% em conversões</strong>
-                </span>
-                <span>
-                    Taxa de abertura<br>
-                    <strong>52,3%</strong>
-                </span>
-            </div>
-        </aside>
-    </section>
-
-    <section class="section" id="sobre">
-        <h2>Por que esta landing page funciona?</h2>
-        <p>
-            Estrutura simples, foco em uma oferta clara, chamada para ação forte
-            e formulário de captura de leads. Você pode adaptar o texto para o
-            nicho que quiser: infoprodutos, serviços, SaaS, loja online e muito mais.
-        </p>
-
-        <div class="newsletter" id="newsletter">
-            <h3>Entre na lista VIP</h3>
-            <p>
-                Receba tutoriais gratuitos, dicas de conversão e modelos prontos de landing pages.
-            </p>
-
-            {{-- MENSAGEM DE SUCESSO DO LARAVEL --}}
-            @if (session('success'))
-                <div class="newsletter-message success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            {{-- ERROS DE VALIDAÇÃO --}}
-            @if ($errors->any())
-                <div class="newsletter-message error">
-                    {{ $errors->first('email') }}
-                </div>
-            @endif
-
-            <form
-                class="newsletter-form"
-                id="newsletter-form"
-                action="{{ route('newsletter.store') }}"
-                method="POST"
-            >
-                @csrf
-                <input
-                    type="email"
-                    name="email"
-                    id="email-input"
-                    placeholder="Digite seu melhor email"
-                    autocomplete="email"
-                    value="{{ old('email') }}"
-                    required
-                >
-                <button type="submit" class="btn btn-primary">
-                    Cadastrar
-                </button>
-            </form>
-
-            <div class="newsletter-message" id="newsletter-message-js"></div>
-        </div>
-    </section>
-</main>
-
-
- @if (session('success'))
-    <div class="popup-backdrop" id="success-popup">
-        <div class="popup-card">
-            <button class="popup-close" id="popup-close-btn">&times;</button>
-            <div class="popup-icon">✅</div>
-            <h3>Inscrição concluída!</h3>
-            <p>{{ session('success') }}</p>
+        <div class="hero-buttons">
+            <button class="btn-primary">Join for free</button>
+            <button class="btn-secondary"><span class="info-play-btn2"> ▶</span> Watch how it works</button>
         </div>
     </div>
-@endif
+
+    <div class="hero-image">
+        <img src="assets/img/header-pic.png" alt="Student smiling holding books">
+    </div>
+</section>
 
 
-<footer>
-    © <span id="year"></span> DevLanding. Feito com Laravel & JavaScript.
+<section class="trusted">
+    <p class="trusted-text">Trusted by 5,000+ Companies Worldwide</p>
+
+    <div class="logos">
+        <img src="./assets/img/google-2015 1.png" alt="Google logo">
+        <img src="./assets/img/netflix-3 1.png" alt="Netflix logo">
+        <img src="./assets/img/airbnb 1.png" alt="Airbnb logo">
+        <img src="./assets/img/amazon-2 (1) 1.png" alt="Amazon logo">
+        <img src="./assets/img/facebook.png" alt="Facebook logo">
+        <img src="./assets/img/grab-logo.png" alt="Grab logo">
+    </div>
+</section>
+
+
+<section class="all-in-one">
+    <h2>All-In-One Cloud Software.</h2>
+    <p class="description">Skilline is one powerful online software suite that combines all the tools needed to run a successful school or office.</p>
+
+    <div class="features">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+            <div class="icon">
+                <img src="./assets/img/blue.png" width="" alt="Billing icon">
+            </div>
+            <h3>Online Billing, Invoicing, & Contracts</h3>
+            <p>Simple and secure control of your organization’s financial and legal transactions. Send customized invoices and contracts.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+            <div class="icon">
+                <img src="icon2.png" alt="Calendar icon">
+            </div>
+            <h3>Easy Scheduling & Attendance Tracking</h3>
+            <p>Schedule and reserve classrooms at one campus or multiple campuses. Keep detailed records of student attendance.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+            <div class="icon">
+                <img src="icon3.png" alt="Customer tracking icon">
+            </div>
+            <h3>Customer Tracking</h3>
+            <p>Automate and track emails to individuals or groups. Skilline’s built-in system helps organize your organization.</p>
+        </div>
+    </div>
+</section>
+
+<section class="bloc-skill">
+  <div class="bloc-skill__wrapper">
+    <h2 class="bloc-skill__title">
+      What is <span class="bloc-skill__title-highlight">Skilline?</span>
+    </h2>
+
+    <p class="bloc-skill__subtitle">
+      Skilline is a platform that allows educators to create online classes whereby they can
+      store the course materials online; manage assignments, quizzes and exams; monitor
+      due dates, grade results and provide students with feedback all in one place.
+    </p>
+
+    <div class="bloc-skill__cards">
+      <!-- Card 1 -->
+      <article class="skill-card">
+        <img
+          src="assets/img/skilline1.jpg"
+          alt="For instructors"
+          class="skill-card__image"
+        />
+        <div class="skill-card__overlay skill-card__overlay--left">
+          <h3 class="skill-card__heading">FOR INSTRUCTORS</h3>
+          <button class="skill-card__btn skill-card__btn--light">
+            Start a class today
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="skill-card">
+        <img
+          src="assets/img/skilline2.jpg"
+          alt="For students"
+          class="skill-card__image"
+        />
+        <div class="skill-card__overlay skill-card__overlay--right">
+          <h3 class="skill-card__heading">FOR STUDENTS</h3>
+          <button class="skill-card__btn skill-card__btn--primary">
+            Enter access code
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-info" id="section-info">
+    <div class="info-bottom">
+        <div class="info-bottom__text">
+            <h2 class="info-bottom__title">
+                Everything you can do in a physical classroom, you can do with <span class="info-highlight">Skilline</span>
+            </h2>
+            <p class="info-bottom__desc">
+                Skilline's school management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms all in one secure cloud-based system.
+            </p>
+            <a href="#" class="info-bottom__link">Learn more</a>
+        </div>
+
+        <div class="info-bottom__image">
+          <iframe width="600" style="border-radius: 4em;"  class="iframe_video" height="420" src="https://www.youtube.com/embed/VomOzeE7Z-k?si=3LGHq6aSbNs3wp3R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="section-feature-ui">
+    <div class="feature-content">
+        <div class="feature-image">
+            <img src="assets/img/uorFeatures.png" alt="Interface de usuário de sala de aula virtual com múltiplos participantes.">
+        </div>
+
+        <div class="feature-text">
+            <h2 class="feature-title">
+                A user interface <span class="highlight-text">designed</span><br> for the classroom
+            </h2>
+
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="icon-square icon-blue-orange"></div>
+                    <p>Teachers don't get lost in the grid view and have a dedicated **Podium space**.</p>
+                </li>
+                <li class="feature-item">
+                    <div class="icon-square icon-orange-blue"></div>
+                    <p>T.A's and presenters can be moved to the **front of the class**.</p>
+                </li>
+                <li class="feature-item">
+                    <div class="icon-square icon-person"></div>
+                    <p>Teachers can easily see all students and **class data** at one time.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-feature-tools">
+    <div class="tools-content">
+        <div class="tools-text">
+            <h2 class="tools-title">
+                <span class="highlight-text">Tools</span> For Teachers<br> And Learners
+            </h2>
+            <p class="tools-description">
+                Class has a **dynamic set of teaching tools** built to be deployed and used during class. Teachers can handout assignments in **real-time** for students to complete and submit.
+            </p>
+        </div>
+
+        <div class="tools-image">
+            <img src="assets/img/tools.png" alt="Estudante pensando e segurando cadernos, cercada por ícones de ferramentas.">
+        </div>
+    </div>
+</section>
+
+
+<section class="section-assessments">
+    <div class="assessments-content">
+        <div class="assessment-visual">
+
+                <div class="question-image-container">
+                    <img src="assets/img/assessments.png" alt="Cena de Veneza, Itália, com gondoleiros e a igreja Santa Maria della Salute.">
+                </div>
+
+        </div>
+
+        <div class="assessments-text">
+            <h2 class="assessments-title">
+                Assessments,<br> <span class="highlight-text">Quizzes</span>, Tests
+            </h2>
+            <p class="assessments-description">
+                Easily launch live assignments, quizzes, and tests. Student results are automatically entered in the online gradebook.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-double-feature">
+    <div class="feature-block block-management">
+        <div class="feature-text">
+            <h2 class="feature-title">
+                <span class="highlight-text">Class Management</span><br> Tools for Educators
+            </h2>
+            <p class="feature-description">
+                Class provides tools to help run and manage the class such as Class Roster, Attendance, and more. With the **Gradebook**, teachers can review and grade tests and quizzes in real-time.
+            </p>
+        </div>
+
+        <div class="feature-image">
+            <img src="assets/img/classManagement.png" alt="Interface de GradeBook mostrando notas dos alunos">
+        </div>
+    </div>
+    
+    <div class="feature-block block-discussions">
+        <div class="feature-image">
+            <img src="assets/img/classManagement2.png" alt="Interface de vídeo chamada com discussão privada">
+        </div>
+
+        <div class="feature-text">
+            <h2 class="feature-title">
+                One-on-One<br> <span class="highlight-text">Discussions</span>
+            </h2>
+            <p class="feature-description">
+                Teachers and teacher assistants can talk with students privately without leaving the Zoom environment.
+            </p>
+            
+        </div>
+    </div>
+    
+
+      <div class="cta-button-container">
+          <a href="#" class="btn-more-features">See more features</a>
+      </div>
+
+</section>
+
+<section class="section-integrations">
+    <div class="integrations-content">
+        <div class="integration-logos">
+            <div class="logo-row">
+                <div class="logo-item">
+                    <img src="assets/img/image2.png" alt="OneDrive logo">
+                    <p>OneDrive</p>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/image5.png" alt="Dropbox logo">
+                    </div>
+            </div>
+            <div class="logo-row">
+                <div class="logo-item">
+                    <img src="assets/img/image3.png" alt="Google Drive logo">
+                    <p>Google Drive</p>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/img/image6.png" alt="Microsoft Teams logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="integrations-text">
+            <p class="subtitle">INTEGRATIONS</p>
+            <h2 class="integrations-title">
+                200+ educational tools and<br> platform <span class="highlight-text">integrations</span>
+            </h2>
+            <p class="integrations-description">
+                Schoology has every tool your classroom needs and comes pre-integrated with more than 200+ tools, student information systems (SIS), and education platforms.
+            </p>
+            
+            <div class="cta-button-container">
+                <a href="#" class="btn-all-integrations">See All Integrations</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-testimonials">
+    <div class="testimonials-content">
+        
+        <div class="testimonials-info">
+            <p class="subtitle">TESTIMONIAL</p>
+            <h2 class="testimonials-title">What They Say?</h2>
+            
+            <p class="testimonials-description">
+                Skilline has got more than **100k positive ratings** from our users around the world.<br>
+                Some of the students and teachers were greatly helped by the Skilline.
+            </p>
+            
+            <p class="testimonials-cta">
+                Are you too? **Please give your assessment**
+            </p>
+
+            <a href="#" class="btn-write-assessment">
+                Write your assessment <span class="arrow-icon">→</span>
+            </a>
+        </div>
+
+        <div class="testimonial-card-visual">
+            <img src="assets/img/testimunials.png" alt="Depoimento de Gloria Rose, com foto de uma estudante sorrindo." class="responsive-image">
+        </div>
+    </div>
+</section>
+
+
+<section class="section-news-resources">
+    <div class="news-header">
+        <h2 class="news-main-title">Lastest News and Resources</h2>
+        <p class="news-subtitle">See the developments that have occurred to Skillines in the world</p>
+    </div>
+
+    <div class="news-main-grid">
+        <article class="news-card news-card--main">
+            <div class="news-image-container">
+                <img src="assets/img/zoom.png" alt="Pessoa em laptop participando de uma reunião de videochamada com uma xícara de café ao lado." class="responsive-image">
+            </div>
+            
+            <span class="news-tag">NEWS</span>
+            <h3 class="news-title">Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
+            <p class="news-description">
+                Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+            </p>
+            <a href="#" class="news-link">Read more</a>
+        </article>
+
+        <div class="news-secondary-list">
+            
+            <article class="news-card news-card--small">
+                <div class="news-image-container news-image-container--small">
+                    <img src="assets/img/kidsZoom.webp" alt="Pessoa segurando um tablet com a etiqueta 'PRESS RELEASE'." class="responsive-image">
+                </div>
+                <div class="news-text-content">
+                    <h3 class="news-title">Class Technologies Inc. Closes $30 Million Series A Financing to Meet High Demand</h3>
+                    <p class="news-description">Class Technologies Inc., the company that created Class...</p>
+                </div>
+            </article>
+
+            <article class="news-card news-card--small">
+                <div class="news-image-container news-image-container--small">
+                    <img src="assets/img/zoom1.jpg" alt="Pessoa vista por trás em frente a um laptop mostrando uma tela de videochamada." class="responsive-image">
+                </div>
+                <div class="news-text-content">
+                    <h3 class="news-title">Zoom’s earliest Investors are betting millions on a better Zoom for schools</h3>
+                    <p class="news-description">Zoom was never created to be a consumer product. Nonetheless, the...</p>
+                    <span class="news-tag news-tag--small">NEWS</span>
+                </div>
+            </article>
+
+            <article class="news-card news-card--small">
+                <div class="news-image-container news-image-container--small">
+                    <img src="assets/img/class-for-zoom.png" alt="Tela de videochamada mostrando pessoas e um cachorro em uma sala de aula online." class="responsive-image">
+                </div>
+                <div class="news-text-content">
+                    <h3 class="news-title">Former Blackboard CEO Raises $16M to Bring LMS Features to Zoom Classrooms</h3>
+                    <p class="news-description">This year, investors have reaped big financial returns from betting on Zoom...</p>
+                    <span class="news-tag news-tag--small">NEWS</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-header">
+            <div class="footer-logo">
+                <img src="assets/img/footerlogo.png" alt="Skilline logo" class="logo-image">
+            </div>
+            <p class="footer-subtitle">Virtual Class for Zoom</p>
+        </div>
+
+        <div class="footer-newsletter">
+            <p class="newsletter-title">Subscribe to get our Newsletter</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email" class="email-input">
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Careers</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <p class="footer-copyright">
+                © 2021 Class Technologies Inc.
+            </p>
+        </div>
+    </div>
 </footer>
 
-<script>
-    // Ano automático
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Scroll suave para newsletter
-    const btnScrollNewsletter = document.getElementById('btn-scroll-newsletter');
-    const newsletterSection = document.getElementById('newsletter');
 
-    btnScrollNewsletter.addEventListener('click', () => {
-        newsletterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Scroll suave para links do menu
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // Animação do "planeta"
-    const orbitDot = document.getElementById('orbit-dot');
-    let angle = 0;
-
-    function animateOrbit() {
-        const radiusX = 90;
-        const radiusY = 55;
-        const centerX = 50;
-        const centerY = 50;
-
-        const rad = angle * (Math.PI / 180);
-        const x = centerX + Math.cos(rad) * (radiusX / 2);
-        const y = centerY + Math.sin(rad) * (radiusY / 2);
-
-        orbitDot.style.left = x + '%';
-        orbitDot.style.top = y + '%';
-
-        angle = (angle + 0.8) % 360;
-        requestAnimationFrame(animateOrbit);
-    }
-
-    animateOrbit();
-</script>
-</body>
-</html>
